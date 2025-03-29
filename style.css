@@ -70,7 +70,7 @@ header {
     font-weight: bold;
     font-size: 1.25rem;
     margin-top: 5px;
-    color: #222; /* Optional: make sure it matches your body text */
+    color: #222; 
 }
 
 .hero-left {
