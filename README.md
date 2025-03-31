@@ -50,3 +50,4 @@ How to manage multi-section pages with clean navigation
 Practice with HTML semantics and JavaScript form logic
 
 Structuring and organizing a real-world web project
+
