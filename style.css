@@ -56,7 +56,7 @@ header {
     color: rgb(255, 0, 0);
 }
 
-/* Hero Section (Flexbox layout) */
+/* Hero Section (Flexbox)*/
 .hero {
     display: flex;
     justify-content: space-between;
@@ -261,5 +261,87 @@ footer .socials a:hover {
 
     .skills-column {
         text-align: center;
+    }
+}
+
+/* Dark Mode*/
+body.dark {
+    background-color: #111;
+    color: #eee;
+}
+
+body.dark header {
+    background-color: #000;
+    color: #fff;
+}
+
+body.dark .nav-links li a {
+    color: #fff;
+}
+
+body.dark section,
+body.dark .skills-column,
+body.dark footer {
+    background-color: #1a1a1a;
+    color: #eee;
+}
+
+body.dark .skills-column {
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .cta-button {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark .cta-button:hover {
+    background-color: #666;
+}
+
+body.dark footer .socials a {
+    color: #ddd;
+}
+
+/* Mobile Burger Menu */
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+}
+
+/* Show burger & collapse */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #222;
+        padding: 10px 0;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: left;
+        padding: 10px 20px;
+    }
+
+    .nav-links li a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-links li label {
+        padding: 10px 20px;
     }
 }
