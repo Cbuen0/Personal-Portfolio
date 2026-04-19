@@ -590,35 +590,27 @@ section {
 }
 .skill-group h3 i { color: var(--accent); }
 
-.skill-bars { display: flex; flex-direction: column; gap: 18px; }
-
-.bar-item {
+.skill-pills {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
-.bar-item span {
+.skill-pill {
   font-family: var(--font-mono);
   font-size: 0.72rem;
+  padding: 8px 16px;
+  border-radius: 40px;
+  border: 1px solid var(--border);
   color: var(--text-muted);
-}
-
-.bar {
-  height: 5px;
   background: var(--bg3);
-  border-radius: 10px;
-  overflow: hidden;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  cursor: default;
 }
-.bar-fill {
-  height: 100%;
-  width: var(--w);
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  border-radius: 10px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+.skill-pill:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  background: rgba(230, 51, 41, 0.08);
 }
-.bar-fill.animated { transform: scaleX(1); }
 
 /* =============================
    Contact

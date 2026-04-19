@@ -1,27 +1,27 @@
-// ── Dark / Light Toggle ──────────────────────────────────
+// Dark Mode Switch
 const darkToggle = document.getElementById("darkToggle");
 const icon = darkToggle.querySelector("i");
 
-// Default: dark mode (body has no class)
+// Dark Mode Default
 darkToggle.addEventListener("click", () => {
   document.body.classList.toggle("light");
   const isLight = document.body.classList.contains("light");
   icon.className = isLight ? "fas fa-sun" : "fas fa-moon";
 });
 
-// ── Hamburger Menu ───────────────────────────────────────
+// Hamburger Menu
 document.getElementById("hamburger").addEventListener("click", () => {
   document.getElementById("navLinks").classList.toggle("open");
 });
 
-// Close nav when a link is clicked (mobile)
+// Close nav bar when choosing link mobile
 document.querySelectorAll(".nav-item").forEach(link => {
   link.addEventListener("click", () => {
     document.getElementById("navLinks").classList.remove("open");
   });
 });
 
-// ── Active Nav Link on Scroll ────────────────────────────
+// Nav link sync to scroll location
 const sections = document.querySelectorAll("section[id]");
 const navItems = document.querySelectorAll(".nav-item");
 
@@ -40,7 +40,7 @@ const observerNav = new IntersectionObserver((entries) => {
 
 sections.forEach(s => observerNav.observe(s));
 
-// ── Fade-in on Scroll ────────────────────────────────────
+// Fade when scrolling
 const fadeEls = document.querySelectorAll(
   ".timeline-item, .project-card, .skill-group, .contact-card, .about-grid, .feedback-wrap"
 );
