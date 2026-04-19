@@ -3,101 +3,281 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Final Portfolio</title>
+  <title>Carlos Bueno — Cybersecurity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+
+
+  <div class="noise"></div>
+
+  <!-- Navbar -->
   <header>
     <nav class="navbar">
-      <div class="logo-hamburger">
-        <div class="logo">MyPortfolio</div>
-        <div class="hamburger" id="hamburger">
-          <i class="fas fa-bars"></i>
-        </div>
-      </div>
+      <div class="logo">CB</div>
+      <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#feedback">Feedback</a></li>
+        <li><a href="#home" class="nav-item">Home</a></li>
+        <li><a href="#about" class="nav-item">About</a></li>
+        <li><a href="#experience" class="nav-item">Experience</a></li>
+        <li><a href="#projects" class="nav-item">Projects</a></li>
+        <li><a href="#skills" class="nav-item">Skills</a></li>
+        <li><a href="#contact" class="nav-item">Contact</a></li>
+        <li><a href="sensor-bracket.html" class="nav-item">Test</a></li>
         <li>
-          <label class="switch">
-            <input type="checkbox" id="darkToggle">
-            <span class="slider round">Dark Mode</span>
-          </label>
+          <button class="dark-btn" id="darkToggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
         </li>
       </ul>
     </nav>
   </header>
 
   <main>
+
+    <!-- Hero Section -->
     <section id="home" class="hero">
-      <div class="hero-left">
-        <h1>Hello, I'm <span class="highlight">Carlos Bueno</span></h1>
-        <h2 class="hero-subtitle">Cybersecurity Intern | CS Student @ UNL</h2>
-        <p> 
-            I specialize in cybersecurity, as a cybersecurity engineer / analyst.
-            I'm currently interning at Ameritas while pursuing a B.S. in Computer Science.
-        </p>
-        <a href="#about" class="cta-button">Learn More</a>
+      <div class="hero-tag">Open to opportunities</div>
+      <h1 class="hero-title">
+        <span class="reveal-line">Carlos</span>
+        <span class="reveal-line accent">Bueno</span>
+      </h1>
+      <p class="hero-sub">CS @ UNL &mdash; Math Minor &mdash; CompTIA Sec +</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="Bueno_Carlos Resume.pdf" download class="btn-ghost"><i class="fas fa-download"></i> Resume</a>
       </div>
-      <div class="hero-right">
-        <img src="unnamed.png" alt="Carlos Bueno" />
-      </div>
+      <div class="hero-scroll">scroll<span class="scroll-line"></span></div>
+      <div class="hero-grid-bg"></div>
     </section>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm currently pursuing a B.S. in Computer Science at the University of Nebraska-Lincoln, with expected graduation in May 2025. 
-        My professional interests are in cybersecurity engineering and security operations. 
-        I'm an intern at Ameritas, where I work on enhancing security protocols and cloud standardization. 
-      </p>
-      <div class="certifications">
-        <h3 onclick="toggleCerts()">Certifications <span id="certArrow">▼</span></h3>
-        <p id="certContent">Google Cybersecurity & CompTIA Security+</p>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills-container">
-        <div class="skills-column">
-          <h3>Security Tools</h3>
-          <ul>
-            <li>Wireshark</li><li>Elastic Stack</li><li>Microsoft Defender</li><li>Azure</li>
-          </ul>
+    <!-- About Section -->
+    <section id="about" class="section-about">
+      <div class="section-label">01 — About</div>
+      <div class="about-grid">
+        <div class="about-img-wrap">
+          <img src="unnamed.png" alt="Carlos Bueno" />
+          <div class="about-img-border"></div>
         </div>
-        <div class="skills-column">
-          <h3>Programming & Tools</h3>
-          <ul>
-            <li>Python</li><li>JavaScript</li><li>MySQL/SQL</li><li>Linux/UNIX</li>
-          </ul>
+        <div class="about-text">
+          <h2>Who I Am</h2>
+          <p>
+            I'm a Computer Science graduate from the University of Nebraska–Lincoln
+            with a math minor and a CompTIA Security+ certification. I am interested in engineering
+            and security autonomous systems.
+          </p>
+          <p>
+            Previous intern at <strong>Ameritas</strong>, where I enhanced security protocols and cloud
+            standardization, while maintaining documentation. I'm building portfolio projects in AI-driven 
+            anomaly detection, aerospace operations engineering and anlysis, and HomeLab.
+          </p>
+          <div class="cert-chips">
+            <span class="chip"><i class="fas fa-shield-halved"></i> CompTIA Security+</span>
+            <span class="chip"><i class="fab fa-google"></i> Google Cybersecurity</span>
+            <span class="chip"><i class="fas fa-graduation-cap"></i> Dean's List</span>
+            <span class="chip"><i class="fas fa-graduation-cap"></i>First Generation</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="feedback">
-      <h2>Leave Feedback</h2>
-      <form id="feedbackForm">
-        <textarea placeholder="Write your feedback here..." rows="5" cols="50" required></textarea><br>
-        <button type="submit">Submit</button>
-      </form>
+    <!-- Experience -->
+    <section id="experience" class="section-experience">
+      <div class="section-label">02 — Experience</div>
+      <h2 class="section-title">Where I've Worked</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2024 — 2025</div>
+            <h3>Information Security Analyst Intern</h3>
+            <div class="timeline-company">Ameritas &mdash; Lincoln, NE</div>
+            <ul>
+              <li>Enhanced security protocols and cloud standardization across enterprise infrastructure</li>
+              <li>Assisted in vulnerability assessments and security monitoring using Microsoft Defender, and Azure</li>
+              <li>Collaborated with security operations teams on incident response, investigation and documentation</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>Azure</span><span>Microsoft Defender</span><span>Elastic Stack</span><span>Varonis</span><span>Virus Total</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2023 — 2025</div>
+            <h3>B.S. Computer Science</h3>
+            <div class="timeline-company">University of Nebraska–Lincoln</div>
+            <ul>
+              <li>Mathematics minor, Dean's List honors</li>
+              <li>Coursework in systems engineering, algorithms, operating systems, and data structures</li>
+              <li>Completed independent cybersecurity research and portfolio projects</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>Python</span><span>Linux</span><span>SQL</span><span>VS Code</span><span>GitHub</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2021 — 2023</div>
+            <h3>Undergrad in Mechanical Engineering</h3>
+            <div class="timeline-company">University of Nebraska–Lincoln</div>
+            <ul>
+              <li>Two years undergrad in Mechanical Engineering</li>
+              <li>Coursework in CAD, statics, physics, and math</li>
+              <li>Completed physics labs and led the design of group CAD project</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>SolidWorks</span><span>MATLAB</span><span>Statics</span><span>Physics</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section-projects">
+      <div class="section-label">03 — Projects</div>
+      <h2 class="section-title">What I've Built</h2>
+      <div class="projects-grid">
+        
+        <div class="project-card featured">
+          <div class="project-number">01</div>
+          <div class="project-badge">Featured</div>
+          <h3>Sensor Bracket Design, Integration, and Analysis</h3>
+          <p>
+            Designed an aluminum braket mount for a sensor on an aircraft. Used FMEA to document
+            the possible failure modes. Generated flight data to simulate data captured by the sensor. 
+            Analyzed the data using Python to reveal anomalies in the data capture. Used mathematical 
+            expressions to simulate the effect the bracekt and sensor would have on the aircraft's center 
+            of gravity.
+          </p>
+          <div class="project-stack">
+            <span>OnShape</span><span>Excel</span><span>VSCode</span><span>NumPy</span><span>Pandas</span><span>FMEA</span>
+          </div>
+          <div class="project-links">
+            <a href="sensor-bracket.html"><i class="fas fa-arrow-right"></i> View Project</a>
+            <a href="https://github.com/Cbuen0" target="_blank"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-number">02</div>
+          <h3>AI-Driven Network Anomaly Detection</h3>
+          <p>
+            Simulates a real network environment with malicious and benign traffic containers.
+            Uses Zeek for live packet capture, scikit-learn for ML-based anomaly classification,
+            and Docker for isolated container architecture.
+          </p>
+          <div class="project-stack">
+            <span>Python</span><span>Docker</span><span>Zeek</span><span>scikit-learn</span><span>Linux</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Cbuen0" target="_blank"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-number">03</div>
+          <h3>Home Lab</h3>
+          <p>
+            Designed and built a three VM home lab using VMware. Created a victim machine (metasploitable)
+            , a attacker machine (Kali Linux), and a Pfsense firewall.
+            
+          </p>
+          <div class="project-stack">
+            <span>WireShark</span><span>VMware</span><span>Kali Linux</span><span>Metasploitable</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Cbuen0" target="_blank"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section-skills">
+      <div class="section-label">04 — Skills</div>
+      <h2 class="section-title">Tools & Technologies</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3><i class="fas fa-shield-halved"></i> Security Tools</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Wireshark</span>
+            <span class="skill-pill">Elastic Stack</span>
+            <span class="skill-pill">Microsoft Defender</span>
+            <span class="skill-pill">Azure Security</span>
+            <span class="skill-pill">Zeek / NIDS</span>
+            <span class="skill-pill">Varonis</span>
+            <span class="skill-pill">VirusTotal</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3><i class="fas fa-code"></i> Programming & Dev</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">SQL / MySQL</span>
+            <span class="skill-pill">Linux / UNIX</span>
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">NumPy</span>
+            <span class="skill-pill">Pandas</span>
+            <span class="skill-pill">Git / GitHub</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section-contact">
+      <div class="section-label">05 — Contact</div>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="contact-sub">Open to defense, aerospace, and cybersecurity roles. Let's talk.</p>
+      <div class="contact-links">
+        <a href="https://github.com/Cbuen0" target="_blank" class="contact-card">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+          <small>Cbuen0</small>
+        </a>
+        <a href="https://linkedin.com/in/carlos-bueno-376a6723a" target="_blank" class="contact-card">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+          <small>carlos-bueno</small>
+        </a>
+        <a href="Bueno_Carlos Resume.pdf" download class="contact-card">
+          <i class="fas fa-file-pdf"></i>
+          <span>Resume</span>
+          <small>Download PDF</small>
+        </a>
+      </div>
+      <div class="feedback-wrap">
+        <h3>Leave Feedback</h3>
+        <form id="feedbackForm">
+          <textarea placeholder="Got a question or opportunity? Write here..." rows="4" required></textarea>
+          <button type="submit">Send <i class="fas fa-arrow-right"></i></button>
+        </form>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <p>Connect with me:</p>
-    <div class="socials">
-      <a href="https://github.com/Cbuen0"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/carlos-bueno-376a6723a"><i class="fab fa-linkedin"></i></a>
-      <a href="Bueno_Carlos Resume.pdf" download title="Download My Resume">
-        <i class="fas fa-file-download"></i>
-      </a>
+    <div class="footer-inner">
+      <div class="logo">CB<span class="dot">.</span></div>
+      <p>© 2025 Carlos Bueno — Built with intention.</p>
     </div>
-    <p>&copy; 2025 Carlos Bueno</p>
   </footer>
+
 </body>
 </html>

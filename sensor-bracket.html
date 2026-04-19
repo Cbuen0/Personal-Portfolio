@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sensor Bracket — Carlos Bueno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .detail-hero {
+      min-height: 44vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 120px 8% 60px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .detail-hero .hero-grid-bg { pointer-events: none; }
+    .back-link {
+      position: absolute;
+      top: 100px; left: 8%;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex; align-items: center; gap: 8px;
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--accent); }
+    .detail-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .detail-title {
+      font-family: var(--font-titles, var(--font-display));
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
+    .detail-meta {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .meta-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .meta-value {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text);
+    }
+
+    .detail-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 8%;
+    }
+
+    /* Image gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 48px 0;
+    }
+    .gallery-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition);
+    }
+    .gallery-item:hover img { transform: scale(1.03); }
+    .gallery-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-align: center;
+      padding: 20px;
+    }
+    .gallery-placeholder i { font-size: 2rem; color: var(--border); }
+
+    /* Content blocks */
+    .content-block { margin-bottom: 64px; }
+    .content-block h2 {
+      font-family: var(--font-titles, var(--font-display));
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+    .content-block p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.85;
+      max-width: 720px;
+      margin-bottom: 14px;
+    }
+    .content-block ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 720px;
+    }
+    .content-block ul li {
+      color: var(--text-muted);
+      padding-left: 20px;
+      position: relative;
+      font-size: 0.97rem;
+      line-height: 1.7;
+    }
+    .content-block ul li::before {
+      content: '→';
+      position: absolute; left: 0;
+      color: var(--accent);
+    }
+
+    /* FMEA table */
+    .fmea-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-top: 24px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+    }
+    th {
+      background: var(--bg3);
+      color: var(--text-muted);
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--bg2); }
+    .severity-high { color: #e63329; font-weight: 700; }
+    .severity-med  { color: #ff9f1c; font-weight: 700; }
+    .severity-low  { color: #2ec4b6; font-weight: 700; }
+
+    /* Stack chips inline */
+    .stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .stack-row span {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 5px 12px;
+      border-radius: 4px;
+      background: var(--bg3);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    /* CTA row */
+    .detail-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">CB<span class="dot">.</span></div>
+      <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home" class="nav-item">Home</a></li>
+        <li><a href="index.html#about" class="nav-item">About</a></li>
+        <li><a href="index.html#experience" class="nav-item">Experience</a></li>
+        <li><a href="index.html#projects" class="nav-item">Projects</a></li>
+        <li><a href="index.html#skills" class="nav-item">Skills</a></li>
+        <li><a href="index.html#contact" class="nav-item">Contact</a></li>
+        <li>
+          <button class="dark-btn" id="darkToggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="detail-hero">
+      <div class="hero-grid-bg"></div>
+      <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+      <div class="detail-tag">01 — Featured Project</div>
+      <h1 class="detail-title">Sensor Bracket Design, Integration & Analysis</h1>
+      <div class="detail-meta">
+        <div class="meta-item">
+          <span class="meta-label">Type</span>
+          <span class="meta-value">Aerospace / Systems Engineering</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Tools</span>
+          <span class="meta-value">OnShape · Python · Excel · FMEA</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Year</span>
+          <span class="meta-value">2024 – 2025</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="detail-body">
+
+      <!-- Gallery -->
+      <div class="content-block">
+        <h2>Visuals</h2>
+        <p>Replace the placeholders below by adding your CAD screenshots, data plots, and FMEA diagrams to the same folder and updating the <code>src</code> attributes.</p>
+        <div class="gallery">
+          <div class="gallery-item">
+            <!-- Replace src with your CAD image, e.g. src="bracket-cad.png" -->
+            <div class="gallery-placeholder">
+              <i class="fas fa-cube"></i>
+              CAD Model<br>(bracket-cad.png)
+            </div>
+          </div>
+          <div class="gallery-item">
+            <!-- Replace with your anomaly detection plot -->
+            <div class="gallery-placeholder">
+              <i class="fas fa-chart-line"></i>
+              Flight Data Plot<br>(flight-data-plot.png)
+            </div>
+          </div>
+          <div class="gallery-item">
+            <!-- Replace with FMEA doc screenshot or CG diagram -->
+            <div class="gallery-placeholder">
+              <i class="fas fa-file-alt"></i>
+              CG Analysis Diagram<br>(cg-diagram.png)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overview -->
+      <div class="content-block">
+        <h2>Overview</h2>
+        <p>
+          This project simulates the full lifecycle of integrating a new sensor onto an aircraft —
+          from mechanical design and structural analysis through software-driven data validation and
+          center-of-gravity modeling. It bridges mechanical engineering fundamentals with Python-based
+          data analysis in a workflow typical of aerospace operations roles.
+        </p>
+        <p>
+          The work was structured around three parallel tracks: physical design and simulation in OnShape,
+          failure mode documentation using a formal FMEA process, and Python-based flight data analysis
+          to surface anomalies in the simulated sensor output.
+        </p>
+      </div>
+
+      <!-- Design -->
+      <div class="content-block">
+        <h2>Bracket Design & Structural Analysis</h2>
+        <p>
+          The aluminum bracket was modeled in OnShape with material properties and mounting constraints
+          typical of light aircraft sensor integrations. Design considerations included:
+        </p>
+        <ul>
+          <li>Material selection — 6061-T6 aluminum for its strength-to-weight ratio</li>
+          <li>Mounting geometry to minimize vibration coupling between sensor and airframe</li>
+          <li>Center-of-gravity shift calculation using mass moments: ΔCG = (m × d) / M<sub>total</sub></li>
+          <li>Stress concentration factor analysis at fastener holes</li>
+        </ul>
+      </div>
+
+      <!-- FMEA -->
+      <div class="content-block">
+        <h2>Failure Mode & Effects Analysis (FMEA)</h2>
+        <p>
+          A systematic FMEA was performed to identify and rank potential failure modes across the
+          bracket, sensor, and mounting interface. Severity, occurrence, and detection ratings
+          were used to calculate Risk Priority Numbers (RPN).
+        </p>
+        <div class="fmea-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Failure Mode</th>
+                <th>Effect</th>
+                <th>Severity</th>
+                <th>Occurrence</th>
+                <th>Detection</th>
+                <th>RPN</th>
+                <th>Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bracket fatigue fracture</td>
+                <td>Sensor loss / FOD</td>
+                <td class="severity-high">9</td>
+                <td>3</td>
+                <td>4</td>
+                <td class="severity-high">108</td>
+                <td>NDT inspection interval</td>
+              </tr>
+              <tr>
+                <td>Fastener loosening</td>
+                <td>Sensor misalignment</td>
+                <td class="severity-med">6</td>
+                <td>4</td>
+                <td>3</td>
+                <td class="severity-med">72</td>
+                <td>Torque-seal + pre-flight check</td>
+              </tr>
+              <tr>
+                <td>Corrosion at interface</td>
+                <td>Structural degradation</td>
+                <td class="severity-med">5</td>
+                <td>3</td>
+                <td>5</td>
+                <td class="severity-med">75</td>
+                <td>Anodize coating + inspection</td>
+              </tr>
+              <tr>
+                <td>Sensor connector failure</td>
+                <td>Data loss</td>
+                <td class="severity-med">6</td>
+                <td>2</td>
+                <td>2</td>
+                <td class="severity-low">24</td>
+                <td>Redundant connector routing</td>
+              </tr>
+              <tr>
+                <td>Vibration-induced drift</td>
+                <td>Noisy sensor output</td>
+                <td class="severity-low">4</td>
+                <td>5</td>
+                <td>3</td>
+                <td class="severity-med">60</td>
+                <td>Vibration isolator mounts</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Data Analysis -->
+      <div class="content-block">
+        <h2>Flight Data Simulation & Anomaly Detection</h2>
+        <p>
+          Synthetic flight data was generated to simulate realistic sensor output across normal
+          and anomalous operating conditions. Python (NumPy, Pandas) was used to process the
+          time-series data and flag statistical outliers.
+        </p>
+        <ul>
+          <li>Generated 10,000+ data points simulating altitude, vibration, and sensor voltage readings</li>
+          <li>Applied z-score thresholding to flag readings beyond 3σ from the rolling mean</li>
+          <li>Visualized anomalies with Matplotlib — identified 3 distinct anomaly clusters in the dataset</li>
+          <li>Exported annotated results to Excel for engineering review documentation</li>
+        </ul>
+        <div class="stack-row">
+          <span>Python</span><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>Excel</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="detail-ctas">
+        <a href="https://github.com/Cbuen0/" target="_blank" class="btn-primary">
+          <i class="fab fa-github"></i> View on GitHub
+        </a>
+        <a href="index.html#projects" class="btn-ghost">
+          <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="logo">CB<span class="dot">.</span></div>
+      <p>© 2025 Carlos Bueno — Built with intention.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("hamburger").addEventListener("click", () => {
+      document.getElementById("navLinks").classList.toggle("open");
+    });
+    const darkToggle = document.getElementById("darkToggle");
+    const icon = darkToggle.querySelector("i");
+    darkToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      icon.className = document.body.classList.contains("light") ? "fas fa-sun" : "fas fa-moon";
+    });
+  </script>
+</body>
+</html>
