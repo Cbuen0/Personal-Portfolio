@@ -20,23 +20,3 @@ JavaScript
 
 Font Awesome
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-**📦 Features**
-
-✅ Hero section with personal intro and headshot
-
-✅ About section describing experience and certifications
-
-✅ Flexbox-based Skills section with responsive columns
-
-✅ Feedback form with JavaScript alert interaction
-
-✅ GitHub & LinkedIn social icons
-
-✅ Fully mobile-responsive with media queries
-
-✅ No external frameworks — just clean, custom code
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
